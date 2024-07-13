@@ -1,4 +1,6 @@
-import Recieve from "@/components/Operation/Recieve";
+import dynamic from 'next/dynamic'
+
+const Recieve = dynamic(() => import('@/components/Operation/Recieve'), { ssr: false });
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

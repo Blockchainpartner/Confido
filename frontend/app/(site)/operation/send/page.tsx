@@ -1,10 +1,10 @@
 
-import Send from "@/components/Operation/Send";
 import { Metadata } from "next";
+import dynamic from 'next/dynamic'
 
+const Send = dynamic(() => import('@/components/Operation/Send'), { ssr: false });
 export const metadata: Metadata = {
   title: "Sending token",
-  // other metadata
 };
 
 const SendPage = () => {

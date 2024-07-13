@@ -1,10 +1,11 @@
 "use client";
+const Footer = dynamic(() => import('@/components/Footer'), { ssr: false });
+const Header = dynamic(() => import('@/components/Header'), { ssr: false });
 
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import { ThemeProvider } from "next-themes";
 import { Inter } from "next/font/google";
 import "../globals.css";
+import dynamic from 'next/dynamic'
 
 import ToasterContext from "../context/ToastContext";
 

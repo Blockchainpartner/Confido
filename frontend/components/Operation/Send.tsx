@@ -1,11 +1,21 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState , useEffect} from "react";
+import { JsonRpcProvider,BrowserProvider } from 'ethers';
 
-const Send = () => {
+const Send = async() => {
 
   const [inputs, setInputs] = useState([{ address: '', amount: '' }]);
+  // initialize your web3 provider
+const provider = new JsonRpcProvider('https://api.helium.fhenix.zone');
+const provider_client = new BrowserProvider(window.ethereum);
+
+
+// initialize Fhenix Client
+//const client = new FhenixClient({provider});
+
+//console.log(client,'THIS IS CLIENT')
 console.log(inputs)
   const handleInputChange = (index, event) => {
     const { name, value } = event.target;
@@ -17,6 +27,10 @@ console.log(inputs)
   const handleAddInput = () => {
     setInputs([...inputs, { address: '', amount: '' }]);
   };
+  const handleEncrypt = () => {
+
+  };
+
 
   const handleRemoveInput = (index) => {
     const newInputs = inputs.filter((_, i) => i !== index);
@@ -102,13 +116,18 @@ console.log(window.ethereum,'EEEEE')
                     >
                       Add Address
                     </button>
+                    <button
+                      onClick={handleEncrypt}
+                      className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
+                    >
+                      Encrypt
+                    </button>
                   </div>
                 </div>
               </div>
           </motion.div>
         </div>
       </section>
-      {/* <!-- ===== SignIn Form End ===== --> */}
     </>
   );
 };
