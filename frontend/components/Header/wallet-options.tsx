@@ -4,15 +4,13 @@ import { Connector, useConnect } from 'wagmi'
 export function WalletOptions() {
   const { connectors, connect } = useConnect()
 
-  return connectors.map((connector) => {(
+  return connectors.map((connector) => (
     <WalletOption
       key={connector.uid}
       connector={connector}
       onClick={() => connect({ connector })}
     />
-  )}
-
-)
+  ))
 }
 
 function WalletOption({
@@ -25,16 +23,15 @@ function WalletOption({
   const [ready, setReady] = React.useState(false)
 
   React.useEffect(() => {
-    (async () => {
+    ;(async () => {
       const provider = await connector.getProvider()
-      console.log('this is the provider',provider)
       setReady(!!provider)
     })()
   }, [connector])
 
   return (
-    <button disabled={!ready} onClick={onClick}>
-      {connector.name}
+    <button className='flex rounded-full bg-black px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho' disabled={!ready} onClick={onClick}>
+      {"Connect wallet" }
     </button>
   )
 }

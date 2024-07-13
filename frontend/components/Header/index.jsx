@@ -10,9 +10,10 @@ import ThemeToggler from "./ThemeToggler";
 import { Account } from './account'
 import { WalletOptions } from './wallet-options'
 
+
 function ConnectWallet() {
   const { isConnected } = useAccount()
-  if (isConnected) return <div><Account /></div>
+  if (isConnected) return <Account />
   return <WalletOptions />
 }
 const Header = () => {
