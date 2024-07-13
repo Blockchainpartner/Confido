@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const Hero = () => {
-
 
 
   return (
@@ -31,18 +31,20 @@ const Hero = () => {
                 </p>
                   <div className="flex flex-wrap gap-5">
       
-                  <button
+                  <Link
                       aria-label="get started button"
+                      href="/operation/send"
                       className="flex rounded-full bg-logo px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-logo1 dark:bg-btndark dark:hover:bg-logo1"
                     >
                       Send tokens
-                    </button>
-                    <button
+                    </Link>
+                    <Link
+                    href="/operation/recieve"
                       aria-label="get started button"
                       className="flex rounded-full bg-black px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
                     >
                       Recieve tokens
-                    </button>
+                    </Link>
                   </div>
 
              

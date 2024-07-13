@@ -25,7 +25,7 @@ function WalletOption({
   const [ready, setReady] = React.useState(false)
 
   React.useEffect(() => {
-    ;(async () => {
+    (async () => {
       const provider = await connector.getProvider()
       console.log('this is the provider',provider)
       setReady(!!provider)
@@ -33,8 +33,7 @@ function WalletOption({
   }, [connector])
 
   return (
-    <button        className="flex rounded-full bg-logo px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-logo1 dark:bg-btndark dark:hover:bg-logo1"
-    disabled={!ready} onClick={onClick}>
+    <button disabled={!ready} onClick={onClick}>
       {connector.name}
     </button>
   )
