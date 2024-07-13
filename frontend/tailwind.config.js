@@ -27,6 +27,8 @@ module.exports = {
         btndark: "#292E45",
         white: "#FFFFFF",
         black: "#181C31",
+        logo: "#7C94F5",
+        logo1: "#3150C9",
         blackho: "#2C3149",
         blacksection: "#1C2136",
         primary: "#006BFF",

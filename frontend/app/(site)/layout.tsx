@@ -11,6 +11,14 @@ const inter = Inter({ subsets: ["latin"] });
 
 import ToasterContext from "../context/ToastContext";
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { WagmiProvider } from 'wagmi'
+//@ts-ignore
+import { config } from './config'
+
+// 2. Set up a React Query client.
+const queryClient = new QueryClient()
+
 export default function RootLayout({
   children,
 }: {
@@ -24,12 +32,16 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="light"
         >
+              <WagmiProvider config={config}>
+              <QueryClientProvider client={queryClient}>
           <Lines />
           <Header />
           <ToasterContext />
           {children}
           <Footer />
           <ScrollToTop />
+          </QueryClientProvider>
+          </WagmiProvider>
         </ThemeProvider>
       </body>
     </html>
