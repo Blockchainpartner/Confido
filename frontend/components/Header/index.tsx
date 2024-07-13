@@ -5,17 +5,24 @@ import Link from "next/link";
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Connector, useConnect } from 'wagmi'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { WagmiProvider, useAccount } from 'wagmi'
+//@ts-ignore
+import { config } from './config'
 import ThemeToggler from "./ThemeToggler";
+import { Account } from './account'
+import { WalletOptions } from './wallet-options'
 
+function ConnectWallet() {
+  const { isConnected } = useAccount()
+  if (isConnected) return <Account />
+  //@ts-ignore
+  return <WalletOptions />
+}
 const Header = () => {
 
   const [stickyMenu, setStickyMenu] = useState(false);
   const [account, setAccount] = useState<string | null>(null);
-
-  const { connectors, connect } = useConnect()
-  const pathUrl = usePathname();
-
   // Sticky menu
   const handleStickyMenu = () => {
     if (window.scrollY >= 80) {
@@ -57,20 +64,15 @@ console.log(account)
           </a>
         </div>
 
-        {/* Nav Menu Start   */}
        
           <div className="mt-7 flex items-center gap-6 xl:mt-0">
-            <ThemeToggler />
-
-{    connectors.map((connector) => (
-    <button key={connector.uid} onClick={() => connect({ connector })}>
-      {connector.name}
-    </button>))}
-
+        <ThemeToggler />
+       <ConnectWallet />
+       </div>
            
-          </div>
+          
         </div>
-²    </header>
+   </header>
   );
 };
 

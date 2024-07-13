@@ -1,6 +1,6 @@
 {
-  "name": "solid-nextjs",
-  "version": "0.2.0",
+  "name": "confido",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --port 3004",

@@ -38,7 +38,6 @@ const Hero = () => {
                       Send tokens
                     </button>
                     <button
-                    disabled={true}
                       aria-label="get started button"
                       className="flex rounded-full bg-black px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
                     >
@@ -52,13 +51,7 @@ const Hero = () => {
 
             <div className="animate_right hidden md:w-1/2 lg:block">
               <div className="relative 2xl:-mr-7.5">
-                <Image
-                  src="/images/shape/shape-01.png"
-                  alt="shape"
-                  width={46}
-                  height={246}
-                  className="absolute -left-11.5 top-0"
-                />
+
                 <Image
                   src="/images/shape/shape-02.svg"
                   alt="shape"
@@ -75,16 +68,18 @@ const Hero = () => {
                 />
                 <div className=" relative aspect-[700/444] w-full">
                   <Image
-                    className="shadow-solid-l dark:hidden"
-                    src="/images/hero/hero-light.svg"
+                    src="/images/hero/hero-light.png"
                     alt="Hero"
-                    fill
+                    width={600}
+                    height={600}
                   />
                   <Image
-                    className="hidden shadow-solid-l dark:block"
-                    src="/images/hero/hero-dark.svg"
+                    className="hidden  dark:block"
+                    src="/images/hero/hero-light.png"
                     alt="Hero"
-                    fill
+                    width={600}
+                    height={600}
+                    
                   />
                 </div>
               </div>
